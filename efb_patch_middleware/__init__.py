@@ -1262,12 +1262,12 @@ class PatchMiddleware(Middleware):
                     message.venue.location.latitude,
                     message.venue.location.longitude
                 )
-            elif mtype is TGMsgType.Contact:
-                assert message.contact
-                contact: Contact = message.contact
-                m.text = self._("Shared a contact: {first_name} {last_name}\n{phone_number}").format(
-                    first_name=contact.first_name, last_name=contact.last_name, phone_number=contact.phone_number
-                )
+            # elif mtype is TGMsgType.Contact:
+            #     assert message.contact
+            #     contact: Contact = message.contact
+            #     m.text = self._("Shared a contact: {first_name} {last_name}\n{phone_number}").format(
+            #         first_name=contact.first_name, last_name=contact.last_name, phone_number=contact.phone_number
+            #     )
             elif mtype is TGMsgType.Dice:
                 assert message.dice
                 m.text = f"{message.dice.emoji} = {message.dice.value}"
